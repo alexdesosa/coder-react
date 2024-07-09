@@ -1,16 +1,17 @@
 import './App.css'
 import Nabvar from './components/Navbar/Navbar.jsx';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
 import {categories } from './mock/mockData.js'
 
 
 function App() {
-  const title = 'Curso de React';
+  const title = 'Bienvenidos a un nuevo mundo intergalactico';
   return (
     <>
-    <div>
-      <Nabvar categories= {categories} title = 'LOGO'/>
-      <h1>Bienvenidos {title}</h1>
-    </div>
+      <Nabvar categories= {categories}/>
+      <ItemListContainer title = {title} />
+
+
     </>
   )
 }
