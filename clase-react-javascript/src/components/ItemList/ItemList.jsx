@@ -1,12 +1,18 @@
 import Item from "../Item/Item.jsx"
 
-const ItemList = () => {
+const ItemList = ({products}) => {
     return(
         <>
         <div>
-            Item List
+            <div>
+                Item List
+            </div>
+            {products.map((product) =>{
+                return <Item key={product.id} product={product}/>
+            })}            
         </div>
-        <Item />        
+
+
         </>
 
     )

@@ -1,27 +1,44 @@
-import CartWidget from '../../components/CartWidget/CartWidget.jsx'
-import "./Navbar.css"
-const Navbar = ({ categories}) => {
-    // const categories = props.categories;
+import CartWidget from "../../components/CartWidget/CartWidget.jsx";
+import NavbarLink from "../NavbarLink/NavbarLink.jsx";
+import logo from "../../assets/logo.jpg";
+import { categories } from "../../mock/mockData.js";
+import "./Navbar.css";
+// import { useEffect } from 'react';
+const Navbar = () => {
+  // const categories = props.categories;
+  // (props) iria dsp del =
+  // Código JS
+  // Para meternos a un Array, hay que poner props.categories abajo dsp del => {}
+  // O tambien usar solo ({categories})
 
-    // Código JS
-    return(
+  // const [cats, setCats] = useState([]);
+  // useEffect(() => {
+  //     /* Lo usaremos para poner un fetch dentro, ya sea una api de una pagina o desde el mismo fetch data con un export  const nombreTitulo*/
+  // })
+  return (
     <>
-        <div className='navbarContainer'>
-            <div>
-            <a href="#"><i className="fas fa-earth-americas" id='logo'></i></a>
-            </div>
-            <div id='navbar'>
-                <a href="#" className='navbarLink'> {categories[0]} </a> 
+      <nav className="navbarContainer">
+        <div>
+          <a href="#">
+            <img src={logo} alt="Logo espacial de la pagina" />
+          </a>
+        </div>
+        <div id="navbar">
+          {categories.map((element) => {
+            return <NavbarLink key={element} category={element} />;
+          })}
+          {/* <a href="#" className='navbarLink'> {categories[0]} </a> 
                 <a href="#" className='navbarLink'> {categories[1]} </a> 
                 <a href="#" className='navbarLink'> {categories[2]} </a> 
                 <a href="#" className='navbarLink'> {categories[3]} </a> 
-                <a href="#" className='navbarLink'> {categories[4]} </a> 
-            </div>
-            <a href="#" id='cart'><CartWidget /></a>
-    </div>
-    </>       
-    ); 
-
-}
+                <a href="#" className='navbarLink'> {categories[4]} </a>  */}
+        </div>
+        <a href="#" id="cart">
+          <CartWidget />
+        </a>
+      </nav>
+    </>
+  );
+};
 
 export default Navbar;
